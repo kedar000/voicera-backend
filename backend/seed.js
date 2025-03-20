@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Restaurant = require('./model/restaurant');
 const restaurantData = require('./data/restaurants.json'); // Adjust path
+const mongoURL = process.env.MONGO_URL || ""
 
-mongoose.connect('mongodb://localhost:27017/restaurantdb');
+mongoose.connect(mongoURL);
 
 mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
