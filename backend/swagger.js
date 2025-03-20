@@ -1,7 +1,6 @@
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-const mongoURL = process.env.MONGO_URL || ""
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -12,11 +11,11 @@ const options = {
     },
     servers: [
       {
-        url: mongoURL,
+        url: 'https://voicera-54e2ed3d14f5.herokuapp.com/',
       },
     ],
   },
-  apis: ['./src/index.js'], // Path to the API docs (can be multiple files)
+  apis: ['./src/app.js'],
 };
 
 const specs = swaggerJsdoc(options);
